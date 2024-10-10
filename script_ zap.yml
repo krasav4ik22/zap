@@ -1,0 +1,15 @@
+@startuml
+participant "Script" as C
+participant "Zap" as S
+
+C -> S: GET /alertsByRisk
+S -> C: JSON response with "ids"
+
+C -> S: GET /alert?id={id}
+S -> C: JSON response with "id","sourceid","messageId", "method","description","url","param","risk","alert","alertRef","method"
+
+C -> S: GET /source_id?source_id={source_id}
+S -> C: JSON response with request_json
+
+
+@enduml
